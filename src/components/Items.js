@@ -15,6 +15,7 @@ const Items = () => {
     const newlist = dataa.filter((x) => x.key !== key);
     setdataa(newlist);
   };
+  
 
   const CopiedData = (data) => {
     setdataa((old) => {

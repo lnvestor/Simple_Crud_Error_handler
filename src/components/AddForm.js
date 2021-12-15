@@ -1,15 +1,16 @@
 import React from "react";
 import tw from "tailwind-styled-components";
 import { useState } from "react";
+import ErrorModal from './ErrorModal'
 
 const AddForm = ({copiedFunction}) => {
   const [getuser, setuser] = useState("");
   const [getage, setage] = useState("");
   const [valid, setvalid] = useState(false);
 
+
   const submitHandler = (e) => {
     e.preventDefault();
-
     if (getage <= 0) {
       setvalid(true);
     } else {
@@ -37,7 +38,7 @@ const AddForm = ({copiedFunction}) => {
     setage(e.target.value);
   };
 
-  const errorhandler = valid === true ? <ErrorSec>* Error! Check age it's must be > 0</ErrorSec> : <ErrorSec></ErrorSec>
+  const errorhandler = valid === true ? <ErrorModal/> : null
 
   return (
     <Wrapper>
@@ -46,7 +47,7 @@ const AddForm = ({copiedFunction}) => {
           <Lable>Information</Lable>
           <Inputs>
             <Input
-              type="text"
+              type="text" 
               placeholder="Enter User.."
               onChange={UseHandler}
               value={getuser}
